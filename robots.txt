@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hdhios009.github.io/kotiksym-english/sitemap.xml
