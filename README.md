@@ -2,7 +2,7 @@
 
 Лендинг английского для детей у м. Планерная.
 
-GitHub Pages: https://hdhios009.github.io/kotiksym-english/
+GitHub Pages: https://english.kotiksym.ru/
 
 Это отдельный сайт направления English. Не путать с основным КотиксУМ (`kotiksym.ru`) и «Основой знаний» (`osnova.kotiksym.ru`).
 
@@ -14,4 +14,5 @@ GitHub Pages: https://hdhios009.github.io/kotiksym-english/
 Заявки уходят на тот же Google Apps Script, что и у КотиксУМ / Основы. Не меняйте endpoint без решения владельца.
 
 ## GitHub Pages
-Branch: `main`, folder: `/ (root)`.
+1. Branch: `main`, folder: `/ (root)`.
+2. Custom domain: `english.kotiksym.ru`, HTTPS включён.
