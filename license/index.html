@@ -8,11 +8,11 @@
 <meta property="og:title" content="Лицензия и оплата обучения — КотиксУМ English">
 <meta property="og:description" content="Информация об образовательной лицензии КотиксУМ, налоговом вычете за обучение и возможности оплаты средствами материнского капитала.">
 <meta property="og:url" content="https://english.kotiksym.ru/license/">
-<link rel="icon" type="image/png" sizes="120x120" href="../favicon-120.png">
-<link rel="icon" type="image/png" sizes="512x512" href="../images/favicon-512.png">
-<link rel="icon" type="image/png" sizes="64x64" href="../favicon.png">
-<link rel="icon" type="image/x-icon" href="../favicon.ico">
-<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/images/favicon-512.png">
+<link rel="icon" type="image/png" sizes="64x64" href="/favicon.png">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
@@ -30,8 +30,10 @@ a{text-decoration:none;color:inherit}
 .wrap{width:min(1040px,calc(100% - 28px));margin:auto}
 header{position:sticky;top:0;z-index:20;background:rgba(251,246,236,.94);backdrop-filter:blur(12px);border-bottom:1px solid rgba(23,36,58,.08)}
 .nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.brand{font-weight:950;font-size:20px;letter-spacing:-.03em}
-.brand span{color:var(--blue)}
+.brand{display:flex;align-items:center;gap:11px;font-weight:950;font-size:20px;letter-spacing:-.03em}
+.brand-mark{width:42px;height:42px;border-radius:11px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;overflow:hidden;flex:0 0 auto}
+.brand-mark img{width:36px;height:36px;object-fit:contain;display:block}
+.brand span:not(.brand-mark){color:var(--blue)}
 .back{padding:12px 16px;border-radius:999px;background:#fff;border:1px solid var(--line);font-weight:850}
 .hero{padding:74px 0 50px}
 .badge{display:inline-flex;align-items:center;gap:8px;padding:9px 13px;background:#fff;border:1px solid var(--line);border-radius:999px;font-size:13px;font-weight:850;color:#1e4fca}
@@ -79,7 +81,7 @@ footer{padding:26px 0;border-top:1px solid var(--line);color:var(--muted);font-s
 <body>
 <header>
   <div class="wrap nav">
-    <a class="brand" href="../">КотиксУМ <span>English</span></a>
+    <a class="brand" href="../"><span class="brand-mark"><img src="/images/logo.jpg" alt=""></span>КотиксУМ <span>English</span></a>
     <a class="back" href="../">← Вернуться на сайт</a>
   </div>
 </header>
