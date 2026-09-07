@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Сравнение типографики — КотиксУМ English</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Onest:wght@400;500;600;700&family=Unbounded:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue:#315BFF;
+  --blue-hover:#244BE6;
+  --tangerine:#FF704F;
+  --yellow:#FFD54F;
+  --ink:#20283B;
+  --bg:#FFFBF4;
+  --soft:#EEF3FF;
+  --paper:#FFFFFF;
+  --muted:rgba(32,40,59,.68);
+  --line:#E8E2D6;
+  --r:12px;
+  --r-lg:20px;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{width:min(1180px,calc(100% - 64px));margin-inline:auto}
+.btn{display:inline-flex;align-items:center;justify-content:center;text-align:center;min-height:52px;padding:14px 22px;border:0;border-radius:var(--r);font-size:16px;font-weight:600;line-height:1.25}
+.btnPrimary{background:var(--blue);color:#fff}
+.btnSecondary{background:var(--paper);color:var(--ink);border:1.5px solid var(--line)}
+.headerCta{min-height:44px;padding:10px 16px;font-size:15px}
+header{position:sticky;top:0;z-index:50;background:rgba(255,251,244,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:72px;padding:12px 0}
+.brand{display:flex;align-items:center;gap:10px;font-size:18px;letter-spacing:-.02em}
+.brand-mark{width:40px;height:40px;border-radius:10px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;overflow:hidden;flex:0 0 auto}
+.brand-mark img{width:34px;height:34px;object-fit:contain}
+.brand em{font-style:normal;color:var(--blue);font-weight:600}
+.links{display:flex;gap:22px;font-size:15px;font-weight:500;color:var(--muted)}
+.hero{padding:56px 0 48px}
+.heroGrid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:48px;align-items:center}
+.kicker{font-size:14px;font-weight:600;color:var(--blue);margin:0 0 10px;letter-spacing:.01em}
+h1{margin:0;color:var(--ink);max-width:13em}
+.accent{color:var(--blue)}
+.heroLead{max-width:36ch;margin:16px 0 0}
+.chain{margin:14px 0 0;font-weight:500}
+.chain b{color:var(--tangerine);font-weight:600}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.facts{margin:18px 0 0;font-size:15px;font-weight:500;color:var(--muted)}
+.heroPhoto{border-radius:var(--r-lg);overflow:hidden;height:min(540px,68vh);min-height:400px;background:var(--soft)}
+.heroPhoto img{width:100%;height:100%;object-fit:cover;object-position:center 42%}
+.panel{border-bottom:8px solid var(--ink)}
+.meta{background:var(--ink);color:#fff;padding:16px 0}
+.meta .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:end}
+.meta b{display:block;font-size:13px;letter-spacing:.08em;text-transform:uppercase;opacity:.7;margin-bottom:4px}
+.meta p{margin:0;font-size:15px;line-height:1.45}
+.pick{background:var(--yellow);color:var(--ink);font-weight:700;padding:4px 8px;border-radius:6px;font-size:12px}
+
+/* A: Unbounded 600 + Onest */
+.v-a,.v-a .btn{font-family:"Onest",system-ui,sans-serif}
+.v-a .brand,.v-a h1{font-family:"Unbounded","Onest",sans-serif;font-weight:600}
+.v-a .brand{font-weight:600;letter-spacing:-.03em}
+.v-a h1{font-size:clamp(34px,4.1vw,54px);line-height:1.2;letter-spacing:-.018em}
+.v-a .heroLead{font-size:18px;line-height:1.6;color:rgba(32,40,59,.78);font-weight:400}
+.v-a .kicker,.v-a .links,.v-a .facts,.v-a .chain{font-family:"Onest",sans-serif}
+
+/* B: Manrope 700 headings + Onest text */
+.v-b,.v-b .btn{font-family:"Onest",system-ui,sans-serif}
+.v-b .brand,.v-b h1{font-family:"Manrope","Onest",sans-serif;font-weight:700}
+.v-b .brand{letter-spacing:-.03em}
+.v-b h1{font-size:clamp(34px,4.2vw,56px);line-height:1.16;letter-spacing:-.025em}
+.v-b .heroLead{font-size:18px;line-height:1.58;color:rgba(32,40,59,.78);font-weight:400}
+
+/* C: Unbounded 500 + Manrope text */
+.v-c,.v-c .btn{font-family:"Manrope",system-ui,sans-serif}
+.v-c .brand,.v-c h1{font-family:"Unbounded","Manrope",sans-serif;font-weight:500}
+.v-c .brand{letter-spacing:-.025em}
+.v-c h1{font-size:clamp(36px,4.3vw,56px);line-height:1.22;letter-spacing:-.012em}
+.v-c .heroLead{font-size:18px;line-height:1.62;color:rgba(32,40,59,.8);font-weight:400}
+.v-c .btn{font-weight:600}
+
+@media (max-width:900px){
+  .heroGrid{grid-template-columns:1fr}
+  .heroPhoto{height:auto;min-height:0;aspect-ratio:4/5;max-width:520px}
+  .links{display:none}
+}
+@media (max-width:720px){
+  .wrap{width:calc(100% - 32px)}
+  .actions{display:grid}
+  .btn{width:100%}
+  .heroPhoto{max-width:none}
+}
+</style>
+</head>
+<body>
+
+<section class="panel v-a" id="a">
+  <div class="meta"><div class="wrap">
+    <div><b>Вариант A</b><p>Заголовки: Unbounded SemiBold 600 · Текст: Onest 400/500/600<br>H1 54px / 1.2 / −0.018em · текст 18px / 1.6 · кнопки Onest 600 16px</p></div>
+    <span class="pick">рекомендация</span>
+  </div></div>
+  <header><div class="wrap nav">
+    <a class="brand" href="#"><span class="brand-mark"><img src="/images/logo.jpg" alt=""></span>КотиксУМ <em>English</em></a>
+    <nav class="links"><a href="#">Результат</a><a href="#">Занятия</a><a href="#">Лицензия</a><a href="#">Бесплатное занятие</a><a href="#">FAQ</a></nav>
+    <a class="btn btnPrimary headerCta" href="#">Записаться</a>
+  </div></header>
+  <section class="hero"><div class="wrap heroGrid">
+    <div>
+      <p class="kicker">Английский 4–16 лет · м. Планерная</p>
+      <h1>Английский, которым ребёнок умеет <span class="accent">пользоваться</span></h1>
+      <p class="heroLead">Понимает учителя, вспоминает нужные слова и отвечает сам — на уроке, дома и в жизни.</p>
+      <p class="chain">услышал <b>→</b> понял <b>→</b> вспомнил <b>→</b> ответил</p>
+      <div class="actions">
+        <a class="btn btnPrimary" href="#">Записаться на бесплатное занятие</a>
+        <a class="btn btnSecondary" href="#">Посмотреть занятия</a>
+      </div>
+      <p class="facts">★★★★★ 5,0 · до 8 человек в группе · м. Планерная, офлайн</p>
+    </div>
+    <div class="heroPhoto"><img src="images/hero.jpg" alt=""></div>
+  </div></section>
+</section>
+
+<section class="panel v-b" id="b">
+  <div class="meta"><div class="wrap">
+    <div><b>Вариант B</b><p>Заголовки: Manrope Bold 700 · Текст: Onest 400/500/600<br>H1 56px / 1.16 / −0.025em · текст 18px / 1.58 · кнопки Onest 600 16px</p></div>
+  </div></div>
+  <header><div class="wrap nav">
+    <a class="brand" href="#"><span class="brand-mark"><img src="/images/logo.jpg" alt=""></span>КотиксУМ <em>English</em></a>
+    <nav class="links"><a href="#">Результат</a><a href="#">Занятия</a><a href="#">Лицензия</a><a href="#">Бесплатное занятие</a><a href="#">FAQ</a></nav>
+    <a class="btn btnPrimary headerCta" href="#">Записаться</a>
+  </div></header>
+  <section class="hero"><div class="wrap heroGrid">
+    <div>
+      <p class="kicker">Английский 4–16 лет · м. Планерная</p>
+      <h1>Английский, которым ребёнок умеет <span class="accent">пользоваться</span></h1>
+      <p class="heroLead">Понимает учителя, вспоминает нужные слова и отвечает сам — на уроке, дома и в жизни.</p>
+      <p class="chain">услышал <b>→</b> понял <b>→</b> вспомнил <b>→</b> ответил</p>
+      <div class="actions">
+        <a class="btn btnPrimary" href="#">Записаться на бесплатное занятие</a>
+        <a class="btn btnSecondary" href="#">Посмотреть занятия</a>
+      </div>
+      <p class="facts">★★★★★ 5,0 · до 8 человек в группе · м. Планерная, офлайн</p>
+    </div>
+    <div class="heroPhoto"><img src="images/hero.jpg" alt=""></div>
+  </div></section>
+</section>
+
+<section class="panel v-c" id="c">
+  <div class="meta"><div class="wrap">
+    <div><b>Вариант C</b><p>Заголовки: Unbounded Medium 500 · Текст: Manrope 400/500/600<br>H1 56px / 1.22 / −0.012em · текст 18px / 1.62 · кнопки Manrope 600 16px</p></div>
+  </div></div>
+  <header><div class="wrap nav">
+    <a class="brand" href="#"><span class="brand-mark"><img src="/images/logo.jpg" alt=""></span>КотиксУМ <em>English</em></a>
+    <nav class="links"><a href="#">Результат</a><a href="#">Занятия</a><a href="#">Лицензия</a><a href="#">Бесплатное занятие</a><a href="#">FAQ</a></nav>
+    <a class="btn btnPrimary headerCta" href="#">Записаться</a>
+  </div></header>
+  <section class="hero"><div class="wrap heroGrid">
+    <div>
+      <p class="kicker">Английский 4–16 лет · м. Планерная</p>
+      <h1>Английский, которым ребёнок умеет <span class="accent">пользоваться</span></h1>
+      <p class="heroLead">Понимает учителя, вспоминает нужные слова и отвечает сам — на уроке, дома и в жизни.</p>
+      <p class="chain">услышал <b>→</b> понял <b>→</b> вспомнил <b>→</b> ответил</p>
+      <div class="actions">
+        <a class="btn btnPrimary" href="#">Записаться на бесплатное занятие</a>
+        <a class="btn btnSecondary" href="#">Посмотреть занятия</a>
+      </div>
+      <p class="facts">★★★★★ 5,0 · до 8 человек в группе · м. Планерная, офлайн</p>
+    </div>
+    <div class="heroPhoto"><img src="images/hero.jpg" alt=""></div>
+  </div></section>
+</section>
+
+</body>
+</html>
