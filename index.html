@@ -72,7 +72,6 @@ header{
 .badge{display:inline-flex;align-items:center;gap:8px;padding:9px 13px;background:white;border:1px solid var(--line);border-radius:999px;font-size:13px;font-weight:850;color:var(--blue-dark)}
 .badgeDot{width:8px;height:8px;border-radius:50%;background:var(--green)}
 h1{font-size:clamp(48px,5vw,70px);line-height:.99;letter-spacing:-.055em;margin:18px 0 20px}
-.hl{background:linear-gradient(transparent 63%,rgba(255,216,87,.9) 63%);padding:0 .03em}
 .heroLead{font-size:21px;line-height:1.52;color:#44526a;max-width:700px}
 .chain{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:24px 0 28px}
 .chain span{background:white;border:1px solid var(--line);padding:10px 13px;border-radius:999px;font-weight:850}
@@ -108,13 +107,10 @@ h2{font-size:clamp(34px,4vw,50px);line-height:1.04;letter-spacing:-.045em;margin
 
 .photoSection{background:#fff7d9;border-top:1px solid rgba(255,216,87,.38);border-bottom:1px solid rgba(255,216,87,.38)}
 .sliderTop{display:flex;align-items:end;justify-content:space-between;gap:20px}
-.sliderControls{display:flex;gap:9px}
-.sliderBtn{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:white;cursor:pointer;font-size:20px;font-weight:900}
-.sliderTrack{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:22px 2px 9px}
-.sliderTrack::-webkit-scrollbar{height:9px}
-.sliderTrack::-webkit-scrollbar-thumb{background:#d5d0c6;border-radius:999px}
-.slide{flex:0 0 min(78vw,360px);scroll-snap-align:start;background:white;border:1px solid var(--line);border-radius:23px;overflow:hidden;box-shadow:var(--shadow)}
-.slide img{display:block;width:100%;height:285px;object-fit:cover}
+.sliderControls{display:none}
+.sliderTrack{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;overflow:visible;scroll-snap-type:none;scroll-behavior:auto;padding:24px 0 0}
+.slide{min-width:0;width:100%;flex:none;scroll-snap-align:none;background:white;border:1px solid var(--line);border-radius:23px;overflow:hidden;box-shadow:var(--shadow)}
+.slide img{display:block;width:100%;aspect-ratio:4/3;height:auto;object-fit:cover}
 .slideText{padding:13px 15px;font-size:14px;font-weight:800;color:#44526a}
 .photoProof{margin-top:17px;background:white;border:1px solid rgba(23,36,58,.07);border-radius:16px;padding:13px 16px;font-weight:800;text-align:center}
 
@@ -171,7 +167,7 @@ footer{padding:26px 0;border-top:1px solid var(--line);color:var(--muted);font-s
 .form-status.ok{color:#247a50}
 .field-error{color:#C13B29;font-size:12px;line-height:1.3}
 .field-error[hidden]{display:none!important}
-.btn,.headerCta,.sliderBtn{min-height:44px}
+.btn,.headerCta{min-height:44px}
 .formBox .privacy{font-size:12px;color:#7a8698;line-height:1.45;margin:10px 0 0}
 .formBox .privacy a{color:var(--blue);text-decoration:underline}
 
@@ -202,9 +198,7 @@ footer{padding:26px 0;border-top:1px solid var(--line);color:var(--muted);font-s
   section{padding:50px 0}
   .sliderTop{align-items:flex-start}
   .sliderTop .sub{font-size:16px}
-  .sliderControls{flex-shrink:0}
-  .slide{flex-basis:87vw}
-  .slide img{height:245px}
+  .sliderTrack{grid-template-columns:1fr;gap:16px}
   
   
   
@@ -237,7 +231,7 @@ footer{padding:26px 0;border-top:1px solid var(--line);color:var(--muted);font-s
   <div class="wrap heroGrid">
     <div>
       <div class="badge"><span class="badgeDot"></span> Английский 4–16 лет · м. Планерная</div>
-      <h1>Английский, которым ребёнок <span class="hl">умеет пользоваться</span></h1>
+      <h1>Английский, которым ребёнок умеет пользоваться</h1>
       <p class="heroLead">Понимает учителя, вспоминает нужные слова и отвечает сам — на уроке, дома и в жизни.</p>
 
       <div class="chain">
@@ -309,10 +303,6 @@ footer{padding:26px 0;border-top:1px solid var(--line);color:var(--muted);font-s
         <div class="kicker">Реальный центр</div>
         <h2>Вот как проходят занятия</h2>
         <p class="sub">Небольшие группы, педагог рядом и много живой практики.</p>
-      </div>
-      <div class="sliderControls">
-        <button class="sliderBtn" id="prev" type="button" aria-label="Предыдущее фото">←</button>
-        <button class="sliderBtn" id="next" type="button" aria-label="Следующее фото">→</button>
       </div>
     </div>
 
@@ -447,14 +437,5 @@ footer{padding:26px 0;border-top:1px solid var(--line);color:var(--muted);font-s
 </footer>
 
 <script src="form.js"></script>
-<script>
-(function(){
-  var slider = document.getElementById('slider');
-  var prev = document.getElementById('prev');
-  var next = document.getElementById('next');
-  if (slider && prev) prev.addEventListener('click', function(){ slider.scrollBy({left:-380,behavior:'smooth'}); });
-  if (slider && next) next.addEventListener('click', function(){ slider.scrollBy({left:380,behavior:'smooth'}); });
-})();
-</script>
 </body>
 </html>
