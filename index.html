@@ -20,7 +20,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Unbounded:wght@600&display=swap" rel="stylesheet">
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -34,185 +34,198 @@
 <!-- /Yandex.Metrika counter -->
 <style>
 :root {
-  --bg:#fbf6ec;
-  --paper:#ffffff;
-  --ink:#17243a;
-  --muted:#68758a;
-  --blue:#2f66f6;
-  --blue-dark:#1e4fca;
-  --yellow:#ffd857;
-  --line:#e7e3db;
-  --green:#23945e;
-  --shadow:0 18px 45px rgba(23,36,58,.10);
+  --blue:#315BFF;
+  --blue-hover:#244BE6;
+  --tangerine:#FF704F;
+  --yellow:#FFD54F;
+  --ink:#20283B;
+  --bg:#FFFBF4;
+  --soft:#EEF3FF;
+  --paper:#FFFFFF;
+  --muted:rgba(32,40,59,.68);
+  --line:#E8E2D6;
+  --r:12px;
+  --r-lg:20px;
+  --err:#B42318;
+  --ok:#1F7A52;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Arial,Helvetica,sans-serif}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:"Onest",system-ui,-apple-system,sans-serif;
+  font-size:17px;
+  line-height:1.6;
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:clip;
+}
 a{color:inherit;text-decoration:none}
 button,input,select{font:inherit}
-img{max-width:100%}
-.wrap{width:min(1160px,calc(100% - 28px));margin:auto}
+img{max-width:100%;display:block}
+.wrap{width:min(1180px,calc(100% - 64px));margin-inline:auto}
+
+h1,h2,h3{
+  font-family:"Unbounded","Onest",sans-serif;
+  font-weight:600;
+  letter-spacing:-.02em;
+  line-height:1.18;
+  margin:0;
+  color:var(--ink);
+}
+h1{font-size:clamp(32px,4vw,52px);max-width:13em}
+h2{font-size:clamp(26px,3vw,38px);max-width:16em}
+h3{font-size:22px;letter-spacing:-.015em}
+.kicker{font-family:"Onest",sans-serif;font-size:14px;font-weight:600;color:var(--blue);margin:0 0 10px;letter-spacing:.01em}
+.sub{color:var(--muted);margin:12px 0 0;max-width:42ch}
+.accent{color:var(--blue)}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;text-align:center;
+  min-height:52px;padding:14px 22px;border:0;border-radius:var(--r);
+  font-size:16px;font-weight:600;line-height:1.25;cursor:pointer;
+  transition:background .18s,border-color .18s,color .18s;
+}
+.btn:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible,button:focus-visible{
+  outline:3px solid var(--blue);outline-offset:2px
+}
+.btnPrimary{background:var(--blue);color:#fff}
+.btnPrimary:hover{background:var(--blue-hover)}
+.btnSecondary{background:var(--paper);color:var(--ink);border:1.5px solid var(--line)}
+.btnSecondary:hover{border-color:#d4cdc0}
 
 header{
   position:sticky;top:0;z-index:50;
-  background:rgba(251,246,236,.94);
+  background:rgba(255,251,244,.92);
   backdrop-filter:blur(12px);
-  border-bottom:1px solid rgba(23,36,58,.08)
+  border-bottom:1px solid var(--line);
 }
-.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-.brand{display:flex;align-items:center;gap:11px;font-weight:950;font-size:20px;letter-spacing:-.03em}
-.brand-mark{width:42px;height:42px;border-radius:11px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;overflow:hidden;flex:0 0 auto}
-.brand-mark img{width:36px;height:36px;object-fit:contain;display:block}
-.brand span:not(.brand-mark){color:var(--blue)}
-.links{display:flex;gap:24px;font-size:14px;color:#435067}
-.headerCta{padding:12px 17px;background:var(--ink);color:white;border-radius:999px;font-weight:850}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:72px;padding:12px 0}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;letter-spacing:-.02em}
+.brand-mark{width:40px;height:40px;border-radius:10px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;overflow:hidden;flex:0 0 auto}
+.brand-mark img{width:34px;height:34px;object-fit:contain}
+.brand em{font-style:normal;color:var(--blue);font-weight:600}
+.links{display:flex;gap:22px;font-size:15px;font-weight:500;color:var(--muted)}
+.links a:hover{color:var(--ink)}
+.headerCta{min-height:44px;padding:10px 16px;font-size:15px}
 
-.hero{padding:68px 0 58px}
-.heroGrid{display:grid;grid-template-columns:minmax(0,1.06fr) minmax(420px,.94fr);gap:42px;align-items:center}
-.badge{display:inline-flex;align-items:center;gap:8px;padding:9px 13px;background:white;border:1px solid var(--line);border-radius:999px;font-size:13px;font-weight:850;color:var(--blue-dark)}
-.badgeDot{width:8px;height:8px;border-radius:50%;background:var(--green)}
-h1{font-size:clamp(48px,5vw,70px);line-height:.99;letter-spacing:-.055em;margin:18px 0 20px}
-.heroLead{font-size:21px;line-height:1.52;color:#44526a;max-width:700px}
-.chain{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:24px 0 28px}
-.chain span{background:white;border:1px solid var(--line);padding:10px 13px;border-radius:999px;font-weight:850}
-.chain b{color:var(--blue)}
-.actions{display:flex;gap:12px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:16px;padding:16px 20px;font-weight:900;cursor:pointer;transition:.18s transform,.18s box-shadow}
-.btn:hover{transform:translateY(-2px)}
-.btnPrimary{background:var(--blue);color:#fff;box-shadow:0 12px 28px rgba(47,102,246,.23)}
-.btnSecondary{background:#fff;border:1px solid var(--line)}
-.trust{display:flex;gap:10px;flex-wrap:wrap;margin-top:23px}
-.trustItem{background:#fff;border:1px solid var(--line);border-radius:15px;padding:11px 13px;font-size:13px;color:#526078}
-.trustItem strong{display:block;color:var(--ink);font-size:15px;margin-bottom:2px}
+.hero{padding:56px 0 36px}
+.heroGrid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:48px;align-items:center}
+.heroLead{font-size:18px;line-height:1.55;color:var(--muted);max-width:36ch;margin:16px 0 0}
+.chain{margin:14px 0 0;font-weight:500;color:var(--ink)}
+.chain b{color:var(--tangerine);font-weight:600}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.facts{margin:18px 0 0;color:var(--muted);font-size:15px;font-weight:500}
+.heroPhoto{border-radius:var(--r-lg);overflow:hidden;height:min(540px,68vh);min-height:400px;background:var(--soft)}
+.heroPhoto img{width:100%;height:100%;object-fit:cover;object-position:center 42%}
 
-.heroPhoto{min-height:565px;border-radius:30px;overflow:hidden;position:relative;background:#dae3f2;box-shadow:var(--shadow)}
-.heroPhoto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 46%;display:block}
-.heroPhoto:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,24,40,.01) 40%,rgba(16,24,40,.24) 100%)}
-.photoBadge{position:absolute;right:18px;top:18px;z-index:2;background:var(--yellow);border-radius:999px;padding:10px 13px;font-weight:900;font-size:13px}
-.photoNote{position:absolute;left:18px;bottom:18px;z-index:2;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-radius:18px;padding:13px 15px;max-width:280px;box-shadow:var(--shadow)}
-.photoNote small{display:block;color:var(--muted);margin-bottom:4px}
-.photoNote strong{line-height:1.3}
+section{padding:72px 0;scroll-margin-top:88px}
+.sectionHead{margin-bottom:28px}
 
-section{padding:66px 0}
-.kicker{font-size:12px;text-transform:uppercase;letter-spacing:.15em;color:var(--blue);font-weight:950}
-h2{font-size:clamp(34px,4vw,50px);line-height:1.04;letter-spacing:-.045em;margin:9px 0 14px}
-.sub{font-size:18px;line-height:1.55;color:var(--muted);max-width:740px}
+.transformGrid{display:grid;grid-template-columns:1fr 1fr;gap:0 48px;border-top:1px solid var(--line)}
+.transform{padding:22px 0;border-bottom:1px solid var(--line)}
+.transformTop{font-size:17px;font-weight:500;color:var(--muted);margin:0 0 8px}
+.transformResult{font-size:18px;font-weight:600;line-height:1.4;margin:0}
+.transformResult:before{content:"";display:inline-block;width:18px;height:3px;margin-right:10px;vertical-align:middle;background:var(--tangerine);border-radius:2px}
 
-.transformGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:28px}
-.transform{background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:0 2px 0 rgba(23,36,58,.02)}
-.transformTop{font-size:19px;font-weight:900;margin-bottom:15px}
-.transformArrow{display:flex;align-items:center;gap:10px;color:var(--blue);font-weight:900;margin-bottom:9px}
-.transformArrow:before{content:"→";width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#eef3ff}
-.transformResult{font-size:17px;line-height:1.4;font-weight:800;color:#27456f}
+.photoSection{background:var(--yellow)}
+.photoSection h2,.photoSection .sub,.photoSection .kicker{color:var(--ink)}
+.photoSection .kicker{color:var(--ink)}
+.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:24px}
+.slide{background:var(--paper);border-radius:var(--r-lg);overflow:hidden}
+.slide img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.slideText{padding:14px 16px;font-size:15px;font-weight:500;color:var(--ink)}
+.photoProof{margin:18px 0 0;text-align:center;font-size:15px;font-weight:500;color:var(--ink)}
 
-.photoSection{background:#fff7d9;border-top:1px solid rgba(255,216,87,.38);border-bottom:1px solid rgba(255,216,87,.38)}
-.sliderTop{display:flex;align-items:end;justify-content:space-between;gap:20px}
-.sliderControls{display:none}
-.sliderTrack{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;overflow:visible;scroll-snap-type:none;scroll-behavior:auto;padding:24px 0 0}
-.slide{min-width:0;width:100%;flex:none;scroll-snap-align:none;background:white;border:1px solid var(--line);border-radius:23px;overflow:hidden;box-shadow:var(--shadow)}
-.slide img{display:block;width:100%;aspect-ratio:4/3;height:auto;object-fit:cover}
-.slideText{padding:13px 15px;font-size:14px;font-weight:800;color:#44526a}
-.photoProof{margin-top:17px;background:white;border:1px solid rgba(23,36,58,.07);border-radius:16px;padding:13px 16px;font-weight:800;text-align:center}
-
-
-
-
-
-
-
-
-.offerSection{background:#fff}
-.offerGrid{display:grid;grid-template-columns:.92fr 1.08fr;gap:22px;align-items:stretch}
-.offerCard{background:var(--ink);color:#fff;border-radius:30px;padding:31px}
-.offerCard .kicker{color:#9ebaff}
-.offerCard h2{font-size:clamp(34px,3.6vw,46px);margin-top:10px}
-.offerLead{font-size:18px;line-height:1.52;color:#d1d9e6}
-.checks{display:grid;gap:11px;margin:22px 0}
+.offerSection{background:var(--paper);border-top:1px solid var(--line)}
+.offerGrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:stretch}
+.offerCard{background:var(--soft);border-radius:var(--r-lg);padding:36px}
+.offerLead{margin:14px 0 0;color:var(--muted);max-width:38ch}
+.checks{display:grid;gap:10px;margin:22px 0 0;padding:0;list-style:none}
 .check{display:flex;gap:10px;align-items:flex-start}
-.check b{color:#7ae2ae}
-.freeTag{display:inline-block;background:var(--yellow);color:var(--ink);border-radius:14px;padding:12px 15px;font-size:20px;font-weight:950;margin-top:6px}
-.priceSmall{margin-top:18px;color:#bbc5d5;font-size:15px}
-.priceSmall strong{color:#fff;font-size:17px}
-.licenseNote{margin:16px 0 0;color:#bbc5d5;font-size:13.5px;line-height:1.5}
-.licenseNote a{color:#fff;text-decoration:underline;text-underline-offset:2px}
+.check b{color:var(--tangerine);font-weight:700}
+.freeTag{display:inline-block;margin-top:24px;background:var(--yellow);color:var(--ink);border-radius:var(--r);padding:12px 16px;font-size:16px;font-weight:600}
+.priceSmall{margin:16px 0 0;color:var(--muted)}
+.priceSmall strong{color:var(--ink);font-weight:600}
+.licenseNote{margin:16px 0 0;color:var(--muted);font-size:15px;line-height:1.5}
+.licenseNote a{color:var(--blue);text-decoration:underline;text-underline-offset:2px}
 
-.formBox{background:var(--bg);border:1px solid var(--line);border-radius:30px;padding:30px}
-.formBox h3{font-size:30px;letter-spacing:-.03em;margin:8px 0 6px}
-.formIntro{color:var(--muted);line-height:1.5;margin:0}
-.fields{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:19px 0}
-.field{display:flex;flex-direction:column;gap:6px}
+.formBox{background:var(--bg);border:1px solid var(--line);border-radius:var(--r-lg);padding:36px}
+.formIntro{color:var(--muted);margin:8px 0 0}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:22px 0 16px}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
 .field.full{grid-column:1/-1}
-label{font-size:13px;font-weight:850;color:#56637a}
-input,select{width:100%;padding:14px 15px;border:1px solid #d7dce5;border-radius:13px;background:white;font-size:16px;outline:none}
-input:focus,select:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(47,102,246,.1)}
+label{font-size:14px;font-weight:600}
+input,select{
+  width:100%;min-height:52px;padding:14px 16px;
+  border:1.5px solid var(--line);border-radius:var(--r);
+  background:#fff;color:var(--ink);font-size:16px;outline:none;
+}
+input:focus,select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(49,91,255,.16)}
+input[aria-invalid="true"],select[aria-invalid="true"]{border-color:var(--err)}
 .submit{width:100%}
-.formNote{font-size:12px;color:#7a8698;line-height:1.4;margin-top:10px}
-.success{display:none;background:#eaf7ef;color:#247a50;padding:12px 14px;border-radius:13px;font-weight:850;margin-top:12px}
-
-.finalSection{padding-bottom:78px}
-.faq{display:grid;gap:10px;max-width:850px}
-details{background:white;border:1px solid var(--line);border-radius:17px;padding:0 17px}
-summary{padding:17px 0;font-weight:900;cursor:pointer;list-style:none}
-summary::-webkit-details-marker{display:none}
-details p{margin:0 0 17px;color:var(--muted);line-height:1.55}
-.contact{margin-top:28px;background:var(--ink);color:#fff;border-radius:28px;padding:28px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
-.contact h3{font-size:28px;margin:0 0 8px}
-.contact p{margin:4px 0;color:#d1d9e6;line-height:1.5}
-.contact .btn{background:#fff;color:var(--ink)}
-
-footer{padding:26px 0;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
-
-.form-status{font-size:13.5px;line-height:1.45;min-height:18px;margin:8px 0 0}
-.form-status.err{color:#C13B29}
-.form-status.ok{color:#247a50}
-.field-error{color:#C13B29;font-size:12px;line-height:1.3}
+.privacy{font-size:13px;color:var(--muted);line-height:1.5;margin:12px 0 0}
+.privacy a{color:var(--blue);text-decoration:underline;text-underline-offset:2px}
+.form-status{font-size:14px;min-height:18px;margin:10px 0 0}
+.form-status.err,.field-error{color:var(--err)}
+.form-status.ok{color:var(--ok)}
+.field-error{font-size:13px}
 .field-error[hidden]{display:none!important}
-.btn,.headerCta{min-height:44px}
-.formBox .privacy{font-size:12px;color:#7a8698;line-height:1.45;margin:10px 0 0}
-.formBox .privacy a{color:var(--blue);text-decoration:underline}
 
+.finalSection{padding-bottom:72px}
+.faq{display:grid;border-top:1px solid var(--line)}
+details{border-bottom:1px solid var(--line)}
+summary{
+  padding:16px 40px 16px 0;font-weight:600;font-size:17px;line-height:1.35;
+  cursor:pointer;list-style:none;position:relative;min-height:52px;
+}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";position:absolute;right:0;top:50%;transform:translateY(-50%);color:var(--blue);font-weight:500;font-size:22px}
+details[open] summary:after{content:"–"}
+details p{margin:0 0 16px;color:var(--muted);max-width:62ch}
 
-@media(max-width:1000px){
-  .heroGrid,.offerGrid{grid-template-columns:1fr}
-  .heroPhoto{min-height:460px;max-width:720px}
+.contact{margin-top:40px;display:flex;justify-content:space-between;gap:24px;align-items:center;flex-wrap:wrap}
+.contact h3{margin:0 0 6px}
+.contact p{margin:4px 0;color:var(--muted)}
+.contact a[href^="tel"]{color:var(--blue);font-weight:600}
+
+footer{padding:24px 0;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+footer a{color:var(--blue);text-decoration:underline;text-underline-offset:2px}
+
+@media (max-width:1100px){
+  .wrap{width:min(1180px,calc(100% - 48px))}
+}
+@media (max-width:900px){
+  .heroGrid,.offerGrid,.transformGrid{grid-template-columns:1fr}
+  .heroPhoto{height:auto;min-height:0;aspect-ratio:4/5;max-width:520px}
   .links{display:none}
+  .hero{padding:32px 0 16px}
+  section{padding:56px 0}
 }
-@media(max-width:760px){
-  .transformGrid{grid-template-columns:1fr}
-  .contact{grid-template-columns:1fr}
-  .contact .btn{width:100%}
-}
-@media(max-width:620px){
-  .wrap{width:min(100% - 24px,1160px)}
-  .nav{height:66px}
-  .headerCta{padding:10px 13px;font-size:13px}
-  .hero{padding:40px 0 43px}
-  h1{font-size:42px;letter-spacing:-.045em}
-  .heroLead{font-size:18px}
-  .actions{display:grid;grid-template-columns:1fr}
-  .btn{width:100%}
-  .trust{display:grid;grid-template-columns:repeat(3,1fr)}
-  .trustItem{padding:10px;font-size:11px}
-  .trustItem strong{font-size:13px}
-  .heroPhoto{min-height:390px}
-  section{padding:50px 0}
-  .sliderTop{align-items:flex-start}
-  .sliderTop .sub{font-size:16px}
-  .sliderTrack{grid-template-columns:1fr;gap:16px}
-  
-  
-  
-  
+@media (max-width:720px){
+  .wrap{width:calc(100% - 32px)}
   .fields{grid-template-columns:1fr}
-  .offerCard,.formBox{padding:23px}
-  .contact{padding:23px}
+  .actions{display:grid}
+  .btn,.contact .btn{width:100%}
+  .heroPhoto{max-width:none}
+  .offerCard,.formBox{padding:24px}
+  h1{font-size:clamp(28px,8vw,36px)}
+}
+@media (max-width:620px){
+  .gallery{grid-template-columns:1fr}
+}
+@media (max-width:480px){
+  .wrap{width:calc(100% - 28px)}
+  .headerCta{padding:10px 12px;font-size:14px}
 }
 </style>
 </head>
 <body>
 <header>
   <div class="wrap nav">
-    <a class="brand" href="./"><span class="brand-mark"><img src="/images/logo.jpg" alt=""></span>КотиксУМ <span>English</span></a>
+    <a class="brand" href="./"><span class="brand-mark"><img src="/images/logo.jpg" alt=""></span>КотиксУМ <em>English</em></a>
     <nav class="links">
       <a href="#change">Результат</a>
       <a href="#photos">Занятия</a>
@@ -220,93 +233,66 @@ footer{padding:26px 0;border-top:1px solid var(--line);color:var(--muted);font-s
       <a href="#free">Бесплатное занятие</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <a class="headerCta" href="#free">Записаться</a>
+    <a class="btn btnPrimary headerCta" href="#free">Записаться</a>
   </div>
 </header>
 
 <main id="top">
 
-<!-- 1. HERO -->
 <section class="hero">
   <div class="wrap heroGrid">
     <div>
-      <div class="badge"><span class="badgeDot"></span> Английский 4–16 лет · м. Планерная</div>
-      <h1>Английский, которым ребёнок умеет пользоваться</h1>
+      <p class="kicker">Английский 4–16 лет · м. Планерная</p>
+      <h1>Английский, которым ребёнок умеет <span class="accent">пользоваться</span></h1>
       <p class="heroLead">Понимает учителя, вспоминает нужные слова и отвечает сам — на уроке, дома и в жизни.</p>
-
-      <div class="chain">
-        <span>услышал</span><b>→</b><span>понял</span><b>→</b><span>вспомнил</span><b>→</b><span>ответил</span>
-      </div>
-
+      <p class="chain">услышал <b>→</b> понял <b>→</b> вспомнил <b>→</b> ответил</p>
       <div class="actions">
         <a class="btn btnPrimary" href="#free">Записаться на бесплатное занятие</a>
         <a class="btn btnSecondary" href="#photos">Посмотреть занятия</a>
       </div>
-
-      <div class="trust">
-        <div class="trustItem"><strong>★★★★★ 5,0</strong>рейтинг родителей</div>
-        <div class="trustItem"><strong>до 8 человек</strong>в группе</div>
-        <div class="trustItem"><strong>м. Планерная</strong>офлайн</div>
-      </div>
+      <p class="facts">★★★★★ 5,0 · до 8 человек в группе · м. Планерная, офлайн</p>
     </div>
-
     <div class="heroPhoto">
       <img src="images/hero.jpg" alt="Педагог КотиксУМ помогает детям на занятии">
-      <div class="photoBadge">реальное занятие ✦</div>
-      <div class="photoNote">
-        <small>КотиксУМ English</small>
-        <strong>Педагог рядом, ребёнок работает сам</strong>
-      </div>
     </div>
   </div>
 </section>
 
-<!-- 2. PROBLEM -> RESULT -->
 <section id="change">
   <div class="wrap">
-    <div class="kicker">Проблема → результат</div>
-    <h2>Узнаёте своего ребёнка?</h2>
-
+    <div class="sectionHead">
+      <p class="kicker">Проблема → результат</p>
+      <h2>Узнаёте своего ребёнка?</h2>
+    </div>
     <div class="transformGrid">
       <article class="transform">
-        <div class="transformTop">Знает слова — молчит</div>
-        <div class="transformArrow">что меняется</div>
-        <div class="transformResult">Начинает отвечать сам</div>
+        <p class="transformTop">Знает слова — молчит</p>
+        <p class="transformResult">Начинает отвечать сам</p>
       </article>
-
       <article class="transform">
-        <div class="transformTop">Не понимает речь учителя</div>
-        <div class="transformArrow">что меняется</div>
-        <div class="transformResult">Слышит вопрос и понимает, что от него хотят</div>
+        <p class="transformTop">Не понимает речь учителя</p>
+        <p class="transformResult">Слышит вопрос и понимает, что от него хотят</p>
       </article>
-
       <article class="transform">
-        <div class="transformTop">Домашка только с мамой</div>
-        <div class="transformArrow">что меняется</div>
-        <div class="transformResult">Лучше разбирается в заданиях самостоятельно</div>
+        <p class="transformTop">Домашка только с мамой</p>
+        <p class="transformResult">Лучше разбирается в заданиях самостоятельно</p>
       </article>
-
       <article class="transform">
-        <div class="transformTop">Учит — забывает</div>
-        <div class="transformArrow">что меняется</div>
-        <div class="transformResult">Быстрее вспоминает нужные слова</div>
+        <p class="transformTop">Учит — забывает</p>
+        <p class="transformResult">Быстрее вспоминает нужные слова</p>
       </article>
     </div>
   </div>
 </section>
 
-<!-- 3. REAL CLASSES -->
 <section class="photoSection" id="photos">
   <div class="wrap">
-    <div class="sliderTop">
-      <div>
-        <div class="kicker">Реальный центр</div>
-        <h2>Вот как проходят занятия</h2>
-        <p class="sub">Небольшие группы, педагог рядом и много живой практики.</p>
-      </div>
+    <div class="sectionHead">
+      <p class="kicker">Реальный центр</p>
+      <h2>Вот как проходят занятия</h2>
+      <p class="sub">Небольшие группы, педагог рядом и много живой практики.</p>
     </div>
-
-    <div class="sliderTrack" id="slider">
+    <div class="gallery">
       <article class="slide">
         <img src="images/gallery-01.jpg" alt="Ребёнок выполняет английское задание">
         <div class="slideText">Работа с английскими словами и заданиями</div>
@@ -324,36 +310,31 @@ footer{padding:26px 0;border-top:1px solid var(--line);color:var(--muted);font-s
         <div class="slideText">Живое офлайн-занятие на Планерной</div>
       </article>
     </div>
-
-    <div class="photoProof">до 8 человек в группе · педагог рядом · офлайн на Планерной</div>
+    <p class="photoProof">до 8 человек в группе · педагог рядом · офлайн на Планерной</p>
   </div>
 </section>
 
-<!-- 4. FREE LESSON + FORM + PRICE -->
 <section class="offerSection" id="free">
   <div class="wrap offerGrid">
     <div class="offerCard">
-      <div class="kicker">Главный первый шаг</div>
+      <p class="kicker">Первый шаг</p>
       <h2>Приходите на бесплатное занятие</h2>
       <p class="offerLead">40 минут: посмотрим, как ребёнок понимает английскую речь, вспоминает слова и отвечает самостоятельно.</p>
-
-      <div class="checks">
-        <div class="check"><b>✓</b><span>определим текущий уровень</span></div>
-        <div class="check"><b>✓</b><span>увидим, где ребёнок теряется</span></div>
-        <div class="check"><b>✓</b><span>дадим рекомендации родителю</span></div>
-        <div class="check"><b>✓</b><span>подберём подходящую группу</span></div>
-      </div>
-
+      <ul class="checks">
+        <li class="check"><b>✓</b><span>определим текущий уровень</span></li>
+        <li class="check"><b>✓</b><span>увидим, где ребёнок теряется</span></li>
+        <li class="check"><b>✓</b><span>дадим рекомендации родителю</span></li>
+        <li class="check"><b>✓</b><span>подберём подходящую группу</span></li>
+      </ul>
       <div class="freeTag">Первое занятие — бесплатно, 40 минут</div>
-      <div class="priceSmall">Дальше: <strong>8 занятий — 9 600 ₽</strong></div>
+      <p class="priceSmall">Дальше: <strong>8 занятий — 9 600 ₽</strong></p>
       <p class="licenseNote">Есть образовательная лицензия · можно вернуть 13% стоимости обучения через налоговый вычет · возможна оплата материнским капиталом при соблюдении условий. <a href="/license/">Подробнее о лицензии и оплате</a></p>
     </div>
 
     <form class="formBox" id="lead-form" novalidate>
-      <div class="kicker">Запись</div>
+      <p class="kicker">Запись</p>
       <h3>Записаться бесплатно</h3>
       <p class="formIntro">Оставьте контакты — свяжемся и подберём время.</p>
-
       <div class="fields">
         <div class="field" data-field="name">
           <label for="f_name">Имя родителя</label>
@@ -377,7 +358,6 @@ footer{padding:26px 0;border-top:1px solid var(--line);color:var(--muted);font-s
           <div class="field-error" data-error-for="age" hidden></div>
         </div>
       </div>
-
       <input id="f_website" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none">
       <button class="btn btnPrimary submit" id="f_submit" type="submit">Записаться на бесплатное занятие</button>
       <div id="form-status" class="form-status" aria-live="polite"></div>
@@ -386,46 +366,41 @@ footer{padding:26px 0;border-top:1px solid var(--line);color:var(--muted);font-s
   </div>
 </section>
 
-<!-- 5. FAQ + CONTACTS -->
 <section class="finalSection" id="faq">
   <div class="wrap">
-    <div class="kicker">Коротко о главном</div>
-    <h2>Частые вопросы</h2>
-
+    <div class="sectionHead">
+      <p class="kicker">Коротко о главном</p>
+      <h2>Частые вопросы</h2>
+    </div>
     <div class="faq">
       <details>
         <summary>С какого возраста можно заниматься?</summary>
         <p>Английский в КотиксУМ — для детей 4–16 лет. Группу подбираем с учётом возраста и текущего уровня.</p>
       </details>
-
       <details>
         <summary>Сколько длится пробное занятие?</summary>
         <p>40 минут. За это время педагог увидит уровень ребёнка и даст рекомендации родителю.</p>
       </details>
-
       <details>
         <summary>Сколько детей в группе?</summary>
         <p>До 8 человек — чтобы педагог слышал каждого и у ребёнка было достаточно практики.</p>
       </details>
-
       <details>
         <summary>Помогаете ли со школьным английским?</summary>
         <p>Да. Помогаем лучше понимать учителя и задания, восполнять пробелы и становиться самостоятельнее.</p>
       </details>
-
       <details>
         <summary>Где проходят занятия?</summary>
         <p>Офлайн в КотиксУМ у м. Планерная, Москва, ул. Вилиса Лациса, 5, корп. 1.</p>
       </details>
     </div>
-
     <div class="contact">
       <div>
         <h3>КотиксУМ English</h3>
         <p>м. Планерная · ул. Вилиса Лациса, 5, корп. 1</p>
         <p><a href="tel:+79684551800">+7 968 455 1800</a></p>
       </div>
-      <a class="btn" href="#free">Записаться на бесплатное занятие</a>
+      <a class="btn btnPrimary" href="#free">Записаться на бесплатное занятие</a>
     </div>
   </div>
 </section>
