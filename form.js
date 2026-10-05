@@ -100,6 +100,7 @@
     showFieldError('name', '');
     showFieldError('phone', '');
     showFieldError('age', '');
+    showFieldError('consent', '');
   }
 
   var attribution = captureAttribution();
@@ -180,6 +181,13 @@
     var website = ((websiteEl && websiteEl.value) || '').trim();
     var key = leadKey(name, phone, age);
 
+    var consent = document.getElementById('f_pd_consent');
+    if (consent && !consent.checked) {
+      showFieldError('consent', 'Отметьте согласие на обработку персональных данных');
+      setStatus('Отметьте согласие на обработку персональных данных.', 'err');
+      consent.focus();
+      return;
+    }
     if (!name) {
       showFieldError('name', 'Пожалуйста, укажите имя.');
       setStatus('Пожалуйста, укажите имя.', 'err');
